@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>TC Checklist | YourFloridaKeysAgent</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="TC Checklist">
+<meta name="theme-color" content="#8cbcbc">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+<link rel="apple-touch-icon" sizes="512x512" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='110' fill='%238cbcbc'/%3E%3Ccircle cx='256' cy='256' r='200' fill='%23ebbdbb'/%3E%3Cpolyline points='130,280 235,385 420,140' fill='none' stroke='white' stroke-width='52' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+
+
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --teal:#8cbcbc;--teal-dark:#6aa4a4;--teal-light:#d4ecec;--teal-xlight:#eef7f7;
+  --blush:#ebbdbb;--blush-dark:#c9908e;--blush-light:#f7e8e7;--blush-xlight:#fdf4f4;
+  --bg:#ffffff;--bg2:#f8f6f4;--bg3:#f2eeec;
+  --text:#2c2c2a;--text2:#666;--text3:#aaa;
+  --border:#e0dbd8;--border2:#ccc;
+  --green:#5aa08a;--green-dark:#3d7a65;
+  --radius:8px;--radius-lg:14px;
+  --topbar:52px;
+}
+@media(prefers-color-scheme:dark){
+  :root{
+    --bg:#1e1e1c;--bg2:#262624;--bg3:#2e2c2a;
+    --text:#f0ede8;--text2:#aaa;--text3:#666;
+    --border:#3a3836;--border2:#555;
+    --teal-light:#1a3535;--teal-xlight:#0f2525;
+    --blush-light:#2e1e1e;--blush-xlight:#1e1414;
+  }
+}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:14px;color:var(--text);background:var(--bg3);height:100dvh;overflow:hidden;display:flex;flex-direction:column}
+.topbar{background:var(--teal);padding:0 16px;height:var(--topbar);display:flex;align-items:center;gap:12px;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+.topbar-logo{font-size:15px;font-weight:700;color:#fff;flex:1}
+.topbar-logo span{opacity:.75;font-weight:400;font-size:13px}
+.hamburger{background:none;border:none;cursor:pointer;color:#fff;font-size:24px;padding:4px;display:none;line-height:1}
+.app{display:flex;flex:1;overflow:hidden}
+.sidebar{width:240px;min-width:240px;background:var(--bg);border-right:0.5px solid var(--border);display:flex;flex-direction:column;overflow:hidden;transition:transform .25s ease}
+.sidebar-header{padding:14px 12px 8px;border-bottom:0.5px solid var(--border);flex-shrink:0}
+.sidebar-title{font-size:10px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
+.prop-list{flex:1;overflow-y:auto;padding:6px}
+.prop-item{padding:10px 11px;border-radius:var(--radius);cursor:pointer;margin-bottom:3px;border:0.5px solid transparent}
+.prop-item:hover{background:var(--bg2)}
+.prop-item.active{background:var(--teal-xlight);border-color:var(--teal)}
+.prop-item.active .prop-name{color:var(--teal-dark)}
+.prop-name{font-size:13px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.prop-meta{font-size:11px;color:var(--text3);margin-top:2px}
+.prop-badge{display:inline-block;font-size:10px;padding:2px 8px;border-radius:10px;margin-top:4px;font-weight:600}
+.badge-seller,.badge-dual,.badge-cash,.badge-financed{background:var(--teal-light);color:var(--teal-dark)}
+.badge-buyer{background:var(--blush-light);color:var(--blush-dark)}
+.badge-closed{background:var(--bg2);color:var(--text2);border:0.5px solid var(--border)}
+.badge-archived{background:var(--bg3);color:var(--text3)}
+.sidebar-footer{padding:10px;border-top:0.5px solid var(--border);flex-shrink:0}
+.section-label{font-size:10px;color:var(--text3);padding:10px 4px 3px;text-transform:uppercase;letter-spacing:.05em}
+.btn{display:inline-flex;align-items:center;gap:5px;padding:7px 13px;border-radius:var(--radius);border:0.5px solid var(--border2);background:transparent;cursor:pointer;font-size:12px;color:var(--text);font-family:inherit;font-weight:600;white-space:nowrap;transition:all .12s}
+.btn:hover{background:var(--bg2)}
+.btn-primary{background:var(--teal);border-color:var(--teal-dark);color:#fff}
+.btn-primary:hover{background:var(--teal-dark)}
+.btn-success{background:var(--green);border-color:var(--green-dark);color:#fff}
+.btn-success:hover{background:var(--green-dark)}
+.btn-danger{color:#a32d2d;border-color:#f7c1c1}
+.btn-danger:hover{background:#fcebeb}
+.btn-warn{background:#faeeda;border-color:#fac775;color:#633806}
+.btn-warn:hover{background:#f5e0b8}
+.btn-sm{padding:5px 10px;font-size:12px}
+.btn-xs{padding:3px 8px;font-size:11px}
+.btn-block{width:100%;justify-content:center}
+.main{flex:1;display:flex;flex-direction:column;overflow:hidden;min-width:0}
+.main-header{padding:12px 16px 0;background:var(--bg);border-bottom:0.5px solid var(--border);flex-shrink:0}
+.prop-title-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px}
+.main-title{font-size:17px;font-weight:700;color:var(--text)}
+.main-subtitle{font-size:12px;color:var(--text3);margin-bottom:6px}
+.action-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;align-items:center}
+.stat-pills{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:10px}
+.stat-pill{font-size:11px;padding:3px 9px;border-radius:10px;background:var(--bg2);border:0.5px solid var(--border);color:var(--text2)}
+.stat-pill span{font-weight:700;color:var(--teal-dark)}
+.tab-bar{display:flex;gap:2px;background:var(--bg2);padding:3px;border-radius:var(--radius)}
+.tab{padding:7px 14px;border-radius:6px;cursor:pointer;font-size:12px;font-weight:600;color:var(--text2);border:none;background:transparent;font-family:inherit;display:flex;align-items:center;gap:5px;transition:all .12s}
+.tab.active{background:var(--bg);color:var(--teal-dark);border:0.5px solid var(--teal)}
+.progress-wrap{padding:6px 16px 4px;flex-shrink:0;background:var(--bg);border-bottom:0.5px solid var(--border)}
+.progress-bar{height:5px;background:var(--bg3);border-radius:3px;overflow:hidden}
+.progress-fill{height:100%;background:var(--teal);border-radius:3px;transition:width .4s}
+.progress-label{font-size:11px;color:var(--text3);text-align:right;padding-top:2px;padding-bottom:2px}
+.content{flex:1;overflow-y:auto;padding:14px}
+
+/* Dates panel */
+.dates-panel{background:var(--bg);border-radius:var(--radius);border:0.5px solid var(--border);margin-bottom:14px;overflow:hidden}
+.dates-header{display:flex;align-items:center;gap:8px;padding:10px 14px;background:var(--teal-xlight);border-bottom:0.5px solid var(--teal-light);cursor:pointer;user-select:none}
+.dates-header-title{font-size:13px;font-weight:700;color:var(--teal-dark);flex:1}
+.dates-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:0;overflow:hidden}
+.date-item{display:flex;align-items:center;gap:8px;padding:8px 10px;border-bottom:0.5px solid var(--border);border-right:0.5px solid var(--border);min-width:0;overflow:hidden}
+.date-item:last-child{border-bottom:none}
+.date-icon{width:32px;height:32px;border-radius:8px;background:var(--teal-xlight);display:flex;align-items:center;justify-content:center;color:var(--teal-dark);font-size:15px;flex-shrink:0}
+.date-icon.blush{background:var(--blush-xlight);color:var(--blush-dark)}
+.date-icon.green{background:#eaf7f0;color:var(--green-dark)}
+.date-icon.warn{background:#faeeda;color:#633806}
+.date-body{flex:1;min-width:0}
+.date-label{font-size:11px;color:var(--text3);font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+.date-val{font-size:13px;font-weight:600;color:var(--text);margin-top:1px}
+.date-val.empty{color:var(--text3);font-weight:400;font-style:italic}
+.date-edit-btn{font-size:11px;color:var(--text3);background:none;border:none;cursor:pointer;padding:2px 4px;border-radius:4px}
+.date-edit-btn:hover{color:var(--teal-dark);background:var(--teal-xlight)}
+.add-date-row{padding:8px 14px;border-top:0.5px solid var(--border)}
+
+/* Phase */
+.phase-section{margin-bottom:10px}
+.phase-header{display:flex;align-items:center;gap:8px;padding:10px 14px;background:var(--blush-light);border-radius:var(--radius);cursor:pointer;border:0.5px solid var(--blush);margin-bottom:5px;user-select:none}
+.phase-header:hover{background:var(--blush-xlight)}
+.phase-title{font-size:13px;font-weight:700;flex:1;color:var(--blush-dark)}
+.phase-count{font-size:11px;color:var(--blush-dark);opacity:.7;font-weight:600}
+.phase-toggle{color:var(--blush-dark);font-size:16px;transition:transform .2s;opacity:.7}
+.phase-toggle.open{transform:rotate(180deg)}
+.phase-add-btn{font-size:11px;padding:2px 8px;border-radius:8px;background:var(--blush-xlight);border:0.5px solid var(--blush);color:var(--blush-dark);cursor:pointer;font-weight:600;font-family:inherit}
+.task-list{display:flex;flex-direction:column;gap:4px}
+.task-item{display:flex;gap:10px;padding:10px 12px;background:var(--bg);border-radius:var(--radius);border:0.5px solid var(--border);align-items:flex-start}
+.task-item:hover{border-color:var(--teal)}
+.task-item.done{opacity:.5}
+.task-item.done .task-name{text-decoration:line-through}
+.task-check{width:18px;height:18px;min-width:18px;border-radius:5px;border:1.5px solid var(--border2);cursor:pointer;display:flex;align-items:center;justify-content:center;margin-top:1px;background:transparent;transition:all .15s}
+.task-check:hover{border-color:var(--teal)}
+.task-check.checked{background:var(--teal);border-color:var(--teal-dark)}
+.task-body{flex:1;min-width:0}
+.task-name{font-size:13px;font-weight:600;line-height:1.4}
+.task-desc{font-size:12px;color:var(--text2);margin-top:3px;line-height:1.5}
+.task-meta{display:flex;gap:4px;margin-top:7px;flex-wrap:wrap;align-items:center}
+.meta-tag{display:inline-flex;align-items:center;gap:3px;font-size:11px;padding:2px 8px;border-radius:10px;border:0.5px solid var(--border);font-weight:500;cursor:pointer;user-select:none;transition:opacity .12s}
+.meta-tag:hover{opacity:.75}
+.meta-tc{background:var(--teal-xlight);color:var(--teal-dark);border-color:var(--teal)}
+.meta-agent{background:var(--blush-xlight);color:var(--blush-dark);border-color:var(--blush)}
+.meta-both{background:var(--bg2);color:var(--text2);border-color:var(--border2)}
+.meta-dotloop{background:#f0f7e8;color:#3a6b1a;border-color:#b8d98a}
+.meta-email{background:#faeeda;color:#633806;border-color:#fac775}
+.meta-off{opacity:.35;text-decoration:line-through}
+.email-btn{font-size:11px;padding:3px 10px;border-radius:10px;border:0.5px solid var(--teal);color:var(--teal-dark);background:var(--teal-xlight);cursor:pointer;display:inline-flex;align-items:center;gap:4px;font-family:inherit;font-weight:600}
+.email-btn:hover{background:var(--teal-light)}
+.email-btn.off{border-color:var(--border);color:var(--text3);background:var(--bg2);text-decoration:line-through;opacity:.4}
+.task-del-btn{background:none;border:none;color:var(--text3);cursor:pointer;font-size:14px;padding:2px;border-radius:4px;line-height:1;flex-shrink:0}
+.task-del-btn:hover{color:#a32d2d;background:#fcebeb}
+
+/* Onesheet */
+.onesheet-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.onesheet-phase{background:var(--bg);border-radius:var(--radius);border:0.5px solid var(--border);overflow:hidden}
+.onesheet-ph-title{padding:9px 13px;font-size:11px;font-weight:700;background:var(--blush-light);border-bottom:0.5px solid var(--blush);color:var(--blush-dark);text-transform:uppercase;letter-spacing:.05em}
+.onesheet-item{display:flex;align-items:center;gap:8px;padding:7px 13px;border-bottom:0.5px solid var(--border)}
+.onesheet-item:last-child{border-bottom:none}
+.onesheet-item input[type=checkbox]{width:15px;height:15px;cursor:pointer;accent-color:var(--teal);flex-shrink:0}
+.onesheet-label{font-size:12px;flex:1;line-height:1.4}
+.onesheet-label.done{text-decoration:line-through;color:var(--text3)}
+
+/* Modal */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;z-index:200;padding:16px}
+.modal{background:var(--bg);border-radius:var(--radius-lg);border:0.5px solid var(--border2);width:100%;max-width:560px;max-height:92dvh;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,.18)}
+.modal-header{padding:14px 16px;border-bottom:0.5px solid var(--border);display:flex;align-items:center;gap:10px;flex-shrink:0;background:var(--teal-xlight)}
+.modal-icon{width:30px;height:30px;border-radius:8px;background:var(--teal);display:flex;align-items:center;justify-content:center;color:#fff;font-size:15px;flex-shrink:0}
+.modal-icon.blush{background:var(--blush)}
+.modal-icon.red{background:#a32d2d}
+.modal-icon.green{background:var(--green)}
+.modal-title{font-size:14px;font-weight:700;flex:1}
+.modal-body{padding:16px;overflow-y:auto;flex:1}
+.modal-footer{padding:12px 16px;border-top:0.5px solid var(--border);display:flex;gap:8px;justify-content:flex-end;flex-shrink:0;background:var(--bg2)}
+.form-row{display:flex;flex-direction:column;gap:4px;margin-bottom:13px}
+.form-label{font-size:11px;font-weight:700;color:var(--text2);text-transform:uppercase;letter-spacing:.04em}
+.form-input{font-size:13px;padding:8px 10px;border-radius:var(--radius);border:0.5px solid var(--border2);background:var(--bg);color:var(--text);width:100%;font-family:inherit}
+.form-input:focus{outline:none;border-color:var(--teal)}
+textarea.form-input{min-height:80px;resize:vertical}
+.email-field{margin-bottom:12px}
+.email-label{font-size:11px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px}
+.email-val{font-size:13px;padding:7px 10px;background:var(--bg2);border-radius:var(--radius);border:0.5px solid var(--border);color:var(--text)}
+.email-body-area{font-size:13px;padding:10px;background:var(--bg2);border-radius:var(--radius);border:0.5px solid var(--border);min-height:200px;white-space:pre-wrap;font-family:inherit;line-height:1.6;outline:none;color:var(--text);width:100%}
+.email-body-area:focus{border-color:var(--teal)}
+.toggle-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+.toggle-chip{padding:5px 12px;border-radius:10px;border:0.5px solid var(--border2);background:var(--bg2);cursor:pointer;font-size:12px;font-weight:600;color:var(--text2);font-family:inherit;transition:all .12s}
+.toggle-chip.on{background:var(--teal);border-color:var(--teal-dark);color:#fff}
+.confirm-msg{font-size:13px;color:var(--text2);line-height:1.7}
+.empty-state{display:flex;flex-direction:column;align-items:center;justify-content:center;flex:1;padding:40px 20px;color:var(--text3);text-align:center}
+.empty-icon{width:60px;height:60px;border-radius:18px;background:var(--teal-xlight);display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-size:28px;color:var(--teal)}
+.empty-title{font-size:16px;font-weight:700;color:var(--text2);margin-bottom:6px}
+.empty-sub{font-size:13px;margin-bottom:20px}
+.sidebar-backdrop{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:49}
+
+/* Dashboard */
+.dash-header{display:flex;align-items:center;gap:16px;padding:20px 20px 16px;background:var(--bg);border-bottom:0.5px solid var(--border);flex-shrink:0;flex-wrap:wrap}
+.dash-header-left{flex:1;min-width:0}
+.dash-greeting{font-size:20px;font-weight:700;color:var(--text);margin-bottom:6px}
+.dash-stats-row{display:flex;gap:16px}
+.dash-stat{font-size:12px;color:var(--text2)}
+.dash-stat span{font-weight:700;font-size:15px;color:var(--teal-dark);display:block}
+.dash-content{flex:1;overflow-y:auto;padding:16px 20px}
+.dash-section-label{font-size:11px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.08em;margin:16px 0 10px}
+.dash-section-label:first-child{margin-top:0}
+.dash-tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;margin-bottom:8px}
+.prop-tile{background:var(--bg);border-radius:var(--radius-lg);border:0.5px solid var(--border);padding:16px;cursor:pointer;transition:all .15s;box-shadow:0 1px 4px rgba(0,0,0,.05)}
+.prop-tile:hover{border-color:var(--teal);box-shadow:0 4px 16px rgba(140,188,188,.2);transform:translateY(-1px)}
+.tile-top{display:flex;gap:14px;align-items:center}
+.tile-progress{flex-shrink:0}
+.tile-info{flex:1;min-width:0}
+.tile-address{font-size:14px;font-weight:700;color:var(--text);line-height:1.3;margin-bottom:3px}
+.tile-client{font-size:12px;color:var(--text2);margin-top:2px}
+.tile-closing{font-size:11px;color:var(--text2);margin-top:6px;display:flex;align-items:center;gap:4px}
+.tile-closing.urgent{color:#c0392b;background:#fcebeb;padding:3px 8px;border-radius:8px;font-weight:600}
+.dash-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px;text-align:center;padding:40px}
+.dash-empty-icon{width:72px;height:72px;border-radius:20px;background:var(--teal-xlight);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:34px;color:var(--teal)}
+.dash-empty-title{font-size:18px;font-weight:700;color:var(--text);margin-bottom:8px}
+.dash-empty-sub{font-size:14px;color:var(--text2);margin-bottom:20px}
+@media(max-width:700px){
+  .dash-tiles{grid-template-columns:1fr}
+  .dash-header{padding:14px}
+}
+
+/* PWA icon canvas (hidden) */
+#pwa-icon-canvas{display:none}
+
+@media(max-width:700px){
+  .sidebar{position:fixed;top:var(--topbar);left:0;bottom:0;z-index:50;transform:translateX(-100%);width:270px;box-shadow:4px 0 20px rgba(0,0,0,.15)}
+  .sidebar.open{transform:translateX(0)}
+  .sidebar-backdrop.open{display:block}
+  .hamburger{display:flex}
+  .action-row{gap:5px}
+  .tab-bar{overflow-x:auto}
+  .dates-grid{grid-template-columns:1fr 1fr !important}
+  .date-label{font-size:10px}
+  .date-val{font-size:12px}
+  .date-icon{width:26px;height:26px;font-size:13px}
+  .dates-panel{overflow:hidden}
+  .main-header{padding:10px 12px 0}
+  .content{padding:10px}
+}
+@media(max-width:400px){
+  .dates-grid{grid-template-columns:1fr !important}
+}
+::-webkit-scrollbar{width:4px;height:4px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--border2);border-radius:3px}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <button class="hamburger" onclick="toggleSidebar()" aria-label="Open menu"><i class="ti ti-menu-2"></i></button>
+  <div class="topbar-logo" onclick="goHome()" style="cursor:pointer">Transaction Coordinator <span>· YourFloridaKeysAgent</span></div>
+  <div id="sync-status" style="font-size:11px;color:rgba(255,255,255,.8);display:flex;align-items:center;gap:4px"></div>
+</div>
+<div class="sidebar-backdrop" id="backdrop" onclick="closeSidebar()"></div>
+<div class="app">
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-header"><div class="sidebar-title">Properties</div></div>
+    <div class="prop-list" id="prop-list"></div>
+    <div class="sidebar-footer">
+      <button class="btn btn-primary btn-block" onclick="openNewProp()"><i class="ti ti-plus"></i> New property</button>
+    </div>
+  </div>
+  <div class="main" id="main-panel" style="display:flex;flex-direction:column">
+    <div class="empty-state">
+      <div class="empty-icon"><i class="ti ti-home"></i></div>
+      <div class="empty-title">No property selected</div>
+      <div class="empty-sub">Add a property to get started</div>
+      <button class="btn btn-primary" onclick="openNewProp()"><i class="ti ti-plus"></i> Add first property</button>
+    </div>
+  </div>
+</div>
+<div id="modal-overlay" class="modal-overlay" style="display:none" onclick="handleOverlayClick(event)"></div>
+
+<script>
+// ── DEFAULT PHASES ──────────────────────────────────────────────
+const DEFAULT_PHASES={
+  seller:[
+    {id:'pre-listing',name:'1. Pre-listing',tasks:[
+      {id:'s1',name:'Schedule listing appointment',who:'Agent',desc:'Set date/time to meet seller at property.',email:false,dotloop:false},
+      {id:'s2',name:'Complete CMA at a glance (Canva)',who:'Agent',desc:'Research comparable sales to agree on list price.',email:false,dotloop:false},
+      {id:'s3',name:'Send intro letter & Follow Me (Canva)',who:'TC',desc:'Introduce yourself, explain your role. Create loop in Dotloop. Mark as Pre-Listing.',email:true,emailKey:'intro_seller',dotloop:true},
+      {id:'s4',name:'Take to appointment – MCPA',who:'Agent',desc:'Bring MCPA form to listing appointment. Upload once signed.',email:false,dotloop:true},
+      {id:'s4b',name:'Take to appointment – Trim Notice',who:'Agent',desc:'Bring Trim Notice to listing appointment.',email:false,dotloop:true},
+      {id:'s4c',name:'Take to appointment – Seller Net Sheet',who:'Agent',desc:'Bring Seller Net Sheet showing estimated profit after fees.',email:false,dotloop:false},
+    ]},
+    {id:'listing',name:'2. Listing',tasks:[
+      {id:'s5',name:'Sign listing & commission agreement',who:'Both',desc:'Upload executed Listing Agreement to Dotloop. Change loop status to Active Listing.',email:false,dotloop:true},
+      {id:'s6',name:'Schedule photographer',who:'TC',desc:'Contact photographer, confirm date/time with seller.',email:true,emailKey:'photo_confirm',dotloop:false},
+      {id:'s7',name:'Send Prepare Your Home checklist (Canva)',who:'TC',desc:'Tips on decluttering, cleaning, staging. Send at least 3 days before photography.',email:true,emailKey:'home_prep',dotloop:false},
+      {id:'s8',name:'Create features flyer & Google Doc folder',who:'TC',desc:'Create Featured Listing Flyer in Canva. Create Google Drive folder.',email:false,dotloop:true},
+      {id:'s9',name:'File created in Dotloop',who:'TC',desc:'Set loop name to property address.',email:false,dotloop:true},
+      {id:'s10',name:'Forms uploaded – FAR/BAR',who:'TC',desc:'Upload FAR/BAR contract form to Dotloop. Mark as Received.',email:false,dotloop:true},
+      {id:'s10b',name:'Forms uploaded – Lead Paint',who:'TC',desc:'Upload Lead Paint Disclosure (homes built before 1978).',email:false,dotloop:true},
+      {id:'s10c',name:'Forms uploaded – Monroe County Rider',who:'TC',desc:'Upload Monroe County Rider. Mark as Received.',email:false,dotloop:true},
+      {id:'s10d',name:'Forms uploaded – HOA Docs',who:'TC',desc:'Upload HOA Docs. Mark as Received.',email:false,dotloop:true},
+      {id:'s11',name:'Flood disclosures',who:'TC',desc:'Upload Flood Disclosure to Dotloop. Mark as Received.',email:false,dotloop:true},
+      {id:'s12',name:'Marketing setup (Canva)',who:'TC',desc:'Set up Canva flyer, Just Listed email blast, social media posts.',email:false,dotloop:false},
+      {id:'s13',name:'MLS active (zero DOM) – data verified',who:'TC',desc:'Verify address, price, beds/baths, photos, description. Set DOM to Zero.',email:true,emailKey:'mls_live',dotloop:true},
+      {id:'s14',name:'Post for sale sign',who:'Agent',desc:'Install yard sign at property.',email:false,dotloop:false},
+      {id:'s15',name:'Install lockbox and verify MLS listing',who:'Agent',desc:'Install lockbox. Upload Lockbox Serial # to Dotloop notes.',email:false,dotloop:true},
+      {id:'s16',name:'Setup marketing and task calendar (Claude)',who:'TC',desc:'Create transaction calendar with all key dates. Track in Dotloop tasks.',email:false,dotloop:true},
+      {id:'s17',name:'Send weekly updates (Claude) (Homes.com)',who:'TC',desc:'Every Monday: Send Weekly Listing Report to seller.',email:true,emailKey:'weekly_listing',dotloop:false},
+      {id:'s18',name:'Send recurring 21-day pricing review',who:'TC',desc:'Every 21 days: Ask Agent to review pricing. Do NOT send to seller.',email:true,emailKey:'price_review',dotloop:false},
+    ]},
+    {id:'under-contract',name:'3. Under Contract / Escrow',tasks:[
+      {id:'s19',name:'Confirm executed contract – save in Drive & Dotloop',who:'TC',desc:'All parties signed. Upload to Dotloop. Change status to Under Contract/Pending.',email:false,dotloop:true},
+      {id:'s20',name:'Confirm title company and open escrow',who:'TC',desc:'Verify title company, get contact info. Send executed contract, request escrow opened.',email:true,emailKey:'open_escrow',dotloop:true},
+      {id:'s21',name:'Attach contract/addendums',who:'TC',desc:'Upload all addendums immediately when executed. Label clearly.',email:false,dotloop:true},
+      {id:'s22',name:'Confirm contract dates',who:'TC',desc:'Log ALL key dates as Tasks in Dotloop.',email:false,dotloop:true},
+      {id:'s23',name:'Send congrats/contract packages',who:'TC',desc:'Send to Buyer, Seller, and Lender. Include key dates. Send within 2 hours.',email:true,emailKey:'congrats',dotloop:true},
+      {id:'s23b',name:'Map (Canva)',who:'TC',desc:'Create property map document in Canva.',email:false,dotloop:false},
+      {id:'s23c',name:'Under contract (Canva)',who:'TC',desc:'Create Under Contract announcement in Canva.',email:false,dotloop:false},
+      {id:'s24',name:'Upload addendums',who:'TC',desc:'Upload each addendum to Dotloop as executed.',email:false,dotloop:true},
+      {id:'s25',name:'Buyer loan/cash: POF received & verified',who:'TC',desc:'Collect Proof of Funds or pre-approval letter. Upload to Dotloop.',email:false,dotloop:true},
+      {id:'s26',name:'Update MLS status to Pending',who:'TC',desc:'Change MLS status to Pending/Under Contract.',email:false,dotloop:true},
+      {id:'s27',name:'Create TXN calendar w/ all deadlines (Claude)',who:'TC',desc:'Add all key dates as Tasks in Dotloop.',email:false,dotloop:true},
+    ]},
+    {id:'escrow-timeline',name:'4. Escrow Timeline',tasks:[
+      {id:'s28',name:'Confirm 1st EMD received (by 4pm on due date)',who:'TC',desc:'Confirm buyer wired funds to escrow. Get wire confirmation. Upload to Dotloop.',email:true,emailKey:'emd_due',dotloop:true},
+      {id:'s29',name:'Schedule inspection and seller access',who:'TC',desc:'Contact inspector, set date/time. Notify seller to provide access.',email:true,emailKey:'inspection',dotloop:true},
+      {id:'s30',name:'Inspection reminder 24hrs before',who:'TC',desc:'Send reminder to all parties 24 hours before inspection.',email:true,emailKey:'inspection_access',dotloop:false},
+      {id:'s31',name:'Track inspection deadline and report',who:'TC',desc:'Florida inspection period is a hard date. Alert agent 2 days before expiration.',email:false,dotloop:true},
+      {id:'s32',name:'Collect repair request (if any)',who:'TC',desc:'Collect any buyer repair request. Upload signed repair request/addendum.',email:true,emailKey:'repair_request',dotloop:true},
+      {id:'s33',name:'Send inspection reports for ins quotes',who:'TC',desc:'Distribute inspection report to Buyer and Agent.',email:false,dotloop:true},
+      {id:'s34',name:'Appraisal coordinated',who:'TC',desc:'Lender orders appraisal. TC follows up and tracks result.',email:true,emailKey:'appraisal',dotloop:true},
+      {id:'s35',name:'Verify 2nd EMD (if applicable)',who:'TC',desc:'Some contracts require a second deposit after inspection period.',email:true,emailKey:'emd2',dotloop:true},
+      {id:'s36',name:'Confirm clear title',who:'TC',desc:'Follow up with title company to confirm title is clear of liens.',email:false,dotloop:true},
+      {id:'s37',name:'Verify insurance, flood, and lead paint docs',who:'TC',desc:'Confirm insurance binder. Verify flood insurance. Lead Paint if pre-1978.',email:false,dotloop:true},
+    ]},
+    {id:'closing',name:'5. Closing',tasks:[
+      {id:'s38',name:'Review closing disclosure/ALTA (from Greg)',who:'TC',desc:'Check all numbers: purchase price, credits, prorations, fees, commission.',email:false,dotloop:true},
+      {id:'s39',name:'Schedule final walkthrough',who:'TC',desc:'Buyer walks through 24-48 hours before closing.',email:true,emailKey:'walkthrough',dotloop:false},
+      {id:'s40',name:'Send closing conf. w/ date, time and location',who:'TC',desc:'Send to ALL parties at least 3 days before. Re-send 24 hours before.',email:true,emailKey:'closing_confirmed',dotloop:true},
+      {id:'s41',name:'2 forms of ID',who:'TC',desc:'Remind all parties to bring two valid government-issued photo IDs.',email:false,dotloop:false},
+      {id:'s42',name:'Verify – Signatures',who:'TC',desc:'Go through every document in Dotloop. Run compliance check.',email:false,dotloop:true},
+      {id:'s43',name:'Verify – Funding',who:'TC',desc:'Contact Lender to verify funds wired to Title Company.',email:true,emailKey:'confirm_funding',dotloop:true},
+      {id:'s44',name:'Verify – Buyer cash to close',who:'TC',desc:'Buyer must wire closing funds to title 1 day before.',email:false,dotloop:false},
+      {id:'s45',name:'Verify – Seller keys/access',who:'TC',desc:'Confirm Seller brings: photo ID, keys, passcodes, garage openers.',email:false,dotloop:false},
+      {id:'s46',name:'Attend closing/deliver keys',who:'Agent',desc:'Agent attends closing and delivers keys to Buyer.',email:false,dotloop:false},
+      {id:'s47',name:'Send closing gift',who:'TC',desc:'Send closing gift to Buyer and/or Seller.',email:false,dotloop:false},
+      {id:'s48',name:'Send thank you letter & review request (Canva)',who:'TC',desc:'Send thank-you note and review request same day as closing.',email:true,emailKey:'closing_congrats',dotloop:false},
+    ]},
+    {id:'post-closing',name:'6. Final Review / Post-Closing',tasks:[
+      {id:'s49',name:'Confirm MLS changed to sold',who:'TC',desc:'Change MLS status to SOLD. Enter sold price and closing date.',email:false,dotloop:true},
+      {id:'s50',name:'Verify – Wires',who:'TC',desc:'Confirm all wires received: seller proceeds and agent commission.',email:false,dotloop:true},
+      {id:'s51',name:'Verify – Recorded deed',who:'TC',desc:'Confirm Warranty Deed recorded with Monroe County Clerk.',email:false,dotloop:true},
+      {id:'s52',name:'Verify – Utilities reminder',who:'TC',desc:'Utilities Transfer Reminder sent to Buyer (FKAA + Keys Energy).',email:true,emailKey:'utilities',dotloop:false},
+      {id:'s53',name:'Verify – Final settlement statement',who:'TC',desc:'Save Final Settlement Statement (ALTA/HUD) to Dotloop and Google Drive.',email:false,dotloop:true},
+      {id:'s54',name:'Complete Dotloop file and submit to broker',who:'TC',desc:'All documents uploaded, signed, marked complete. Click Submit for Review.',email:false,dotloop:true},
+      {id:'s55',name:'Verify CDA',who:'TC',desc:'Verify Commission Disbursement Authorization is in file.',email:false,dotloop:true},
+      {id:'s56',name:'Upload final docs to Google Drive, archive',who:'TC',desc:'Upload all docs to Google Drive. Archive loop in Dotloop.',email:false,dotloop:true},
+      {id:'s57',name:'Add client to CRM w/ anniversaries',who:'TC',desc:'Enter Buyer/Seller contact info. Set 1-year anniversary reminder.',email:false,dotloop:false},
+      {id:'s58',name:'Confirm commission paid',who:'TC',desc:'Verify agent received commission from title company.',email:false,dotloop:false},
+    ]},
+  ],
+  buyer:[
+    {id:'b-offer',name:'1. Offer & Contract',tasks:[
+      {id:'b1',name:'Offer submitted and accepted',who:'Agent',desc:'Agent writes and negotiates the offer.',email:false,dotloop:false},
+      {id:'b2',name:'Create Dotloop loop – upload executed contract',who:'TC',desc:'Create loop immediately. Upload contract. Change status to Under Contract.',email:false,dotloop:true},
+      {id:'b3',name:'Send intro letter to buyer',who:'TC',desc:'Introduce yourself, share key dates. Send within 1 hour of contract execution.',email:true,emailKey:'buyer_intro',dotloop:false},
+      {id:'b4',name:'Buyer loan/cash: POF received & verified',who:'TC',desc:'Confirm pre-approval letter or Proof of Funds. Upload to Dotloop.',email:false,dotloop:true},
+    ]},
+    {id:'b-under-contract',name:'2. Under Contract / Escrow',tasks:[
+      {id:'b5',name:'Confirm executed contract – save in Drive & Dotloop',who:'TC',desc:'All parties signed. Upload to Dotloop. Change status to Under Contract/Pending.',email:false,dotloop:true},
+      {id:'b6',name:'Confirm title company and open escrow',who:'TC',desc:'Verify title company, get contact info. Request escrow opened.',email:true,emailKey:'open_escrow',dotloop:true},
+      {id:'b7',name:'Attach contract/addendums',who:'TC',desc:'Upload all addendums immediately when executed.',email:false,dotloop:true},
+      {id:'b8',name:'Confirm contract dates',who:'TC',desc:'Log ALL key dates as Tasks in Dotloop.',email:false,dotloop:true},
+      {id:'b9',name:'Send congrats/contract packages',who:'TC',desc:'Send to Buyer, Seller, and Lender. Send within 2 hours.',email:true,emailKey:'congrats',dotloop:true},
+      {id:'b10',name:'Upload addendums',who:'TC',desc:'Upload each addendum to Dotloop immediately.',email:false,dotloop:true},
+      {id:'b11',name:'Update MLS status to Pending',who:'TC',desc:'Change MLS status to Pending/Under Contract.',email:false,dotloop:true},
+      {id:'b12',name:'Create TXN calendar w/ all deadlines',who:'TC',desc:'Add all key dates as Tasks in Dotloop.',email:false,dotloop:true},
+      {id:'b13',name:'Confirm 1st EMD received (by 4pm on due date)',who:'TC',desc:'Confirm buyer wired funds. Get wire confirmation receipt.',email:true,emailKey:'emd_due',dotloop:true},
+      {id:'b14',name:'Schedule inspection and seller access',who:'TC',desc:'Contact inspector, set date/time. Notify seller.',email:true,emailKey:'inspection',dotloop:true},
+      {id:'b15',name:'Inspection reminder 24hrs before',who:'TC',desc:'Send reminder 24 hours before inspection.',email:true,emailKey:'inspection_access',dotloop:false},
+      {id:'b16',name:'Track inspection deadline and report',who:'TC',desc:'Florida inspection period is a hard date. Alert agent 2 days before.',email:false,dotloop:true},
+      {id:'b17',name:'Collect repair request (if any)',who:'TC',desc:'After inspection, collect any repair request.',email:true,emailKey:'repair_request',dotloop:true},
+      {id:'b18',name:'Appraisal coordinated',who:'TC',desc:'Lender orders appraisal. TC follows up and tracks result.',email:true,emailKey:'appraisal',dotloop:true},
+      {id:'b19',name:'Verify 2nd EMD (if applicable)',who:'TC',desc:'Collect and verify second deposit if required.',email:true,emailKey:'emd2',dotloop:true},
+      {id:'b20',name:'Confirm clear title',who:'TC',desc:'Follow up with title company. Upload title commitment.',email:false,dotloop:true},
+      {id:'b21',name:'Verify insurance, flood, and lead paint docs',who:'TC',desc:'Confirm insurance binder. Verify flood insurance. Lead Paint if pre-1978.',email:false,dotloop:true},
+      {id:'b22',name:'Send wire fraud prevention notice',who:'TC',desc:'Required at least 1 week before closing. Florida law requires this.',email:true,emailKey:'wire_fraud',dotloop:true},
+      {id:'b23',name:'Send weekly transaction updates',who:'TC',desc:'Send every Friday or Monday to all parties.',email:true,emailKey:'weekly_update',dotloop:false},
+    ]},
+    {id:'b-closing',name:'3. Closing',tasks:[
+      {id:'b24',name:'Review closing disclosure/ALTA',who:'TC',desc:'Check all numbers. Upload CD/ALTA to Dotloop.',email:false,dotloop:true},
+      {id:'b25',name:'Schedule final walkthrough',who:'TC',desc:'Buyer walks through 24-48 hours before closing.',email:true,emailKey:'walkthrough',dotloop:false},
+      {id:'b26',name:'Send closing confirmation',who:'TC',desc:'Send to ALL parties at least 3 days before. Re-send 24 hours before.',email:true,emailKey:'closing_confirmed',dotloop:true},
+      {id:'b27',name:'Verify all signatures',who:'TC',desc:'Go through every document in Dotloop. Run compliance check.',email:false,dotloop:true},
+      {id:'b28',name:'Confirm funding',who:'TC',desc:'Contact Lender to verify funds wired to Title Company.',email:true,emailKey:'confirm_funding',dotloop:true},
+      {id:'b29',name:'Verify buyer cash to close',who:'TC',desc:'Buyer must wire closing funds to title 1 day before.',email:false,dotloop:false},
+      {id:'b30',name:'Confirm seller and buyer bring-list',who:'TC',desc:'Seller: photo ID, keys, passcodes. Buyer: photo ID, Closing Disclosure, cashier\'s check.',email:false,dotloop:false},
+      {id:'b31',name:'Attend closing/deliver keys',who:'Agent',desc:'Agent attends closing and delivers keys to Buyer.',email:false,dotloop:false},
+      {id:'b32',name:'Send closing gift & thank you letter',who:'TC',desc:'Send closing gift and thank-you note same day as closing.',email:true,emailKey:'closing_congrats',dotloop:false},
+    ]},
+    {id:'b-post-closing',name:'4. Final Review / Post-Closing',tasks:[
+      {id:'b33',name:'Confirm MLS changed to sold',who:'TC',desc:'Change MLS status to SOLD.',email:false,dotloop:true},
+      {id:'b34',name:'Verify – Wires',who:'TC',desc:'Confirm all wires received.',email:false,dotloop:true},
+      {id:'b35',name:'Verify – Recorded deed',who:'TC',desc:'Confirm Warranty Deed recorded with Monroe County Clerk.',email:false,dotloop:true},
+      {id:'b36',name:'Verify – Utilities reminder',who:'TC',desc:'Send utilities transfer reminder (FKAA + Keys Energy).',email:true,emailKey:'utilities',dotloop:false},
+      {id:'b37',name:'Verify – Final settlement statement',who:'TC',desc:'Save Final Settlement Statement to Dotloop and Google Drive.',email:false,dotloop:true},
+      {id:'b38',name:'Complete Dotloop file and submit to broker',who:'TC',desc:'All documents uploaded, signed, marked complete.',email:false,dotloop:true},
+      {id:'b39',name:'Verify CDA',who:'TC',desc:'Verify Commission Disbursement Authorization is in file.',email:false,dotloop:true},
+      {id:'b40',name:'Upload final docs to Google Drive, archive',who:'TC',desc:'Upload all docs to Google Drive. Archive loop in Dotloop.',email:false,dotloop:true},
+      {id:'b41',name:'Add client to CRM w/ anniversaries',who:'TC',desc:'Enter contact info. Set 1-year anniversary reminder.',email:false,dotloop:false},
+      {id:'b42',name:'Confirm commission paid',who:'TC',desc:'Verify agent received commission.',email:false,dotloop:false},
+    ]},
+  ],
+};
+// cash and financed share the seller phases but with appropriate labels
+DEFAULT_PHASES.cash = DEFAULT_PHASES.seller;
+DEFAULT_PHASES.financed = DEFAULT_PHASES.seller;
+DEFAULT_PHASES.dual = DEFAULT_PHASES.seller;
+
+const DATE_FIELDS=[
+  {key:'contract_date',label:'Contract date',icon:'ti-file-text',style:''},
+  {key:'emd1_due',label:'1st EMD due',icon:'ti-cash',style:'warn'},
+  {key:'emd2_due',label:'2nd EMD due',icon:'ti-cash',style:'warn'},
+  {key:'inspection_start',label:'Inspection period starts',icon:'ti-search',style:'blush'},
+  {key:'inspection_end',label:'Inspection period ends',icon:'ti-search',style:'blush'},
+  {key:'loan_approval',label:'Loan approval deadline',icon:'ti-building-bank',style:'warn'},
+  {key:'appraisal_date',label:'Appraisal deadline',icon:'ti-home-check',style:''},
+  {key:'title_clear',label:'Title clear deadline',icon:'ti-certificate',style:'green'},
+  {key:'insurance_due',label:'Insurance due',icon:'ti-shield-check',style:'green'},
+  {key:'cd_delivery',label:'Closing disclosure delivery',icon:'ti-file-invoice',style:'blush'},
+  {key:'walkthrough',label:'Final walkthrough',icon:'ti-walk',style:''},
+  {key:'closing_date',label:'Closing date',icon:'ti-key',style:'green'},
+];
+
+const EMAILS={
+  intro_seller:{subject:'Welcome! Your Transaction Coordinator Is Here — [Address]',to:'Seller',from:'TC',body:`Hi [Seller First Name],\n\nMy name is [TC Name] and I am the Transaction Coordinator working alongside [Agent Name] on the sale of your home at [Address].\n\nMy job is to manage all the paperwork, deadlines, and communication so that your sale goes as smoothly as possible. You can always reach me at [TC Email] or [TC Phone].\n\nHere is what to expect next:\n- We will get your listing agreement signed\n- Photography will be scheduled\n- Your home will be listed on the MLS\n- I will send you a weekly update every Monday with showing activity and feedback\n\nPlease don't hesitate to reach out with any questions. We are excited to get started!\n\nWarm regards,\n[TC Name]\n[Agent Name] | YourFloridaKeysAgent\n[TC Phone] | [TC Email]\n\nTC Note: Send within 24 hours of being assigned. CC the agent.`},
+  buyer_intro:{subject:"Welcome! Your TC Is Here + You're Under Contract | [Address]",to:'Buyer',from:'TC',body:`Hi [Buyer Name],\n\nCongratulations — your offer on [Address] has been accepted!\n\nMy name is [TC Name] and I am the Transaction Coordinator working with [Agent Name]. I will manage all the paperwork and deadlines from here to closing.\n\nYOUR KEY DATES:\n- 1st Earnest Money Due: $[Amount] by [Date]\n- Inspection Period Ends: [Date]\n- Loan Approval Deadline: [Date]\n- Appraisal Deadline: [Date]\n- Closing Date: [Date] at [Title Company, Address]\n\nYour next step: Wire your earnest money deposit (details to follow).\n\nI'm here for any questions!\n\nBest,\n[TC Name]\n[TC Phone] | [TC Email]\n\nTC Note: Send within 1 hour of contract execution. Attach executed contract.`},
+  photo_confirm:{subject:'Photography Confirmed — [Date] at [Time] | [Address]',to:'Seller',from:'TC',body:`Hi [Seller Name],\n\nYour photography appointment is confirmed:\n\nDate: [Date]\nTime: [Time]\nAddress: [Address]\nPhotographer: [Name] | [Phone]\n\nPlease make sure the home is clean, decluttered, and well-lit. The session will take approximately 1-2 hours.\n\nLet me know if you need to reschedule.\n\nBest,\n[TC Name]\n[Phone] | [Email]\n\nTC Note: Attach the Prepare Your Home checklist PDF.`},
+  home_prep:{subject:'How to Prepare Your Home for Photos & Showings — [Address]',to:'Seller',from:'TC',body:`Hi [Seller Name],\n\nHere are some quick tips to get your home ready:\n\nOUTSIDE: Mow lawn, trim hedges, clear driveway, add potted plants if possible.\n\nINSIDE: Declutter all surfaces, remove personal photos, deep clean all rooms, clean windows, make beds, remove pet items and odors, replace burned-out bulbs.\n\nKITCHEN: Clear counters completely, clean appliances inside/out.\n\nBATHROOMS: Clean thoroughly, hide toiletries, put out fresh towels.\n\nA little effort here goes a long way toward a faster, higher sale price!\n\nBest,\n[TC Name]\n\nTC Note: Send at least 3 days before photography.`},
+  mls_live:{subject:"You're Live on MLS! | [Address]",to:'Seller',from:'TC',body:`Hi [Seller Name],\n\nGreat news — your home is now active on the MLS!\n\nListing Link: [MLS URL]\nList Price: $[Price]\nMLS#: [Number]\n\nHere is what happens next:\n- Buyer's agents will start scheduling showings\n- You will receive a weekly update from me every Monday\n- Showings are typically confirmed 1-2 hours in advance\n\nBest,\n[TC Name]\n[Agent Name] | YourFloridaKeysAgent`},
+  weekly_listing:{subject:'Weekly Listing Update | [Address] | Week of [Date]',to:'Seller',from:'TC',body:`Hi [Seller Name],\n\nHere is your weekly activity report:\n\nOnline Views This Week: [#]\nShowings This Week: [#]\nTotal Showings to Date: [#]\n\nBuyer Feedback: [Summary]\n\nAgent's Notes: [Comments]\n\nPrice Review: [On track / Agent recommends discussing adjustment]\n\nNext Steps: [e.g., 2 showings scheduled this week]\n\nBest,\n[TC Name]\n\nTC Note: Pull MLS stats and showing feedback before sending. Send every Monday morning.`},
+  price_review:{subject:'21-Day Price Review Reminder | [Address]',to:'Agent',from:'TC',body:`Hi [Agent Name],\n\nWe have been on the market for 21 days at [Address] with [#] showings and [#] offers so far.\n\nPer our process, it's time to check in with the seller about pricing. Would you like me to prepare a market update?\n\nBest,\n[TC Name]\n\nTC Note: Do NOT send to seller — for agent only.`},
+  congrats:{subject:"Congratulations — We're Under Contract! | [Address]",to:'Buyer + Seller',from:'TC',body:`Hi [Name],\n\nCongratulations — we are officially under contract on [Address]!\n\nKey dates:\n- Contract Acceptance Date: [Date]\n- 1st EMD Due: $[Amount] by [Date]\n- Inspection Period Ends: [Date]\n- Loan Approval Deadline: [Date]\n- Closing Date: [Date]\n- Closing Location: [Title Company, Address]\n\nYour full contract is attached.\n\nBest,\n[TC Name]\n[Agent Name] | YourFloridaKeysAgent\n[TC Phone] | [TC Email]\n\nTC Note: Send within 2 hours of execution.`},
+  open_escrow:{subject:'New Transaction — Please Open Escrow | [Address]',to:'Title Company',from:'TC',body:`Hi [Title Officer Name],\n\nPlease open escrow for:\n\nProperty: [Address]\nBuyer: [Name] | [Phone] | [Email]\nSeller: [Name] | [Phone] | [Email]\nBuyer's Agent: [Name] | [Brokerage] | [Phone]\nListing Agent: [Name] | [Brokerage] | [Phone]\nLender: [Name + Contact]\nContract Price: $[Amount]\n1st EMD: $[Amount] due by [Date]\nClosing Date: [Date]\n\nExecuted contract attached. Please confirm receipt and provide wiring instructions.\n\nThank you,\n[TC Name]\n[Agent Name] | YourFloridaKeysAgent`},
+  emd_due:{subject:'ACTION REQUIRED: Earnest Money Deposit Due [Date] | [Address]',to:'Buyer',from:'TC',body:`Hi [Buyer Name],\n\nYour Earnest Money Deposit of $[Amount] is due by [Date].\n\nWire to:\nBank: [Bank Name]\nRouting: [#]\nAccount: [#]\nAccount Name: [Title Company]\nReference: [Address]\n\nIMPORTANT: Always call the title company at [Phone] to VERBALLY CONFIRM wiring instructions before sending any money. Wire fraud is common in real estate.\n\nOnce wired, send us the wire confirmation receipt.\n\nThank you,\n[TC Name]\n[TC Phone] | [TC Email]`},
+  inspection:{subject:'Home Inspection Confirmed | [Address]',to:'Buyer',from:'TC',body:`Hi [Buyer Name],\n\nYour home inspection is confirmed:\n\nDate: [Date]\nTime: [Time]\nAddress: [Address]\nInspector: [Name] | [Phone] | [Company]\n\nApproximately 2-3 hours. We strongly recommend you attend.\n\nBest,\n[TC Name]\n[TC Phone] | [TC Email]\n\nTC Note: Send seller access confirmation email separately.`},
+  inspection_access:{subject:'Inspection Access Needed | [Address] | [Date] at [Time]',to:'Seller',from:'TC',body:`Hi [Seller Name],\n\nThe home inspection is scheduled for [Date] at [Time] at [Address].\n\nPlease ensure:\n- Home is accessible (lockbox or someone present)\n- All utilities are ON\n- Pets are secured\n- Attic and crawl space access is clear\n\nApproximately 2-3 hours. You do not need to be present.\n\nThank you,\n[TC Name]\n[TC Phone] | [TC Email]\n\nTC Note: Send at least 48 hours before inspection.`},
+  repair_request:{subject:"Buyer's Repair Request — Please Review | [Address]",to:"Seller's Agent",from:'TC',body:`Hi [Seller's Agent Name],\n\nThe buyer's repair request for [Address] is attached.\n\nThe buyer is requesting: [List items or credit amount]\n\nSeller's response due by: [Date]\n\nAll agreed repairs must be documented in a written addendum.\n\nThank you,\n[TC Name]\n[TC Phone] | [TC Email]`},
+  appraisal:{subject:'Appraisal Result | [Address]',to:'Agent + Buyer',from:'TC',body:`Hi [Name],\n\nAppraisal for [Address]:\n\nAppraised Value: $[Amount]\nContract Price: $[Amount]\nResult: [At value / Below by $X]\n\n[If at value: Great news — clear to proceed!]\n[If below: Need to discuss options: renegotiate price, buyer pays difference, or cancel per contract.]\n\nBest,\n[TC Name]\n[TC Phone] | [TC Email]\n\nTC Note: Upload report to Dotloop. Notify agent immediately if below value.`},
+  emd2:{subject:'2nd Earnest Money Deposit Due | [Address]',to:'Buyer',from:'TC',body:`Hi [Buyer Name],\n\nYour 2nd Earnest Money Deposit of $[Amount] is due by [Date].\n\nWire to same escrow account:\nBank: [Bank Name] | Routing: [#] | Account: [#]\nReference: [Address] — 2nd EMD\n\nAlways call [Title Company] at [Phone] to verbally confirm wiring instructions first.\n\nThank you,\n[TC Name]\n[TC Phone] | [TC Email]`},
+  wire_fraud:{subject:'IMPORTANT: Wire Fraud Prevention Notice | [Address]',to:'Buyer',from:'TC',body:`Hi [Buyer Name],\n\nNEVER wire money based solely on email instructions. Always call [Title Company] at [Phone] to verbally confirm wiring instructions before sending any funds.\n\nPlease sign the attached Wire Fraud Prevention Notice.\n\nClosing Date: [Date]\nClosing Location: [Address]\nTitle Company Phone: [#]\n\nThank you,\n[TC Name]\n[TC Phone] | [TC Email]\n\nTC Note: Florida law requires this. Upload signed copy to Dotloop immediately.`},
+  weekly_update:{subject:'Weekly Transaction Update | [Address] | [Date]',to:'All Parties',from:'TC',body:`Hi everyone,\n\nUpdate for [Address]:\n\nLoan Status: [On track / Awaiting docs / Approved]\nAppraisal: [Ordered / Scheduled / Completed / At value]\nInspection: [Completed / Repair request pending / Resolved]\nTitle: [Clear / In progress / Issue noted]\nOpen Items: [List]\n\nClosing on track for [Date].\n\nBest,\n[TC Name]\n[TC Phone] | [TC Email]\n\nTC Note: Send every Friday or Monday.`},
+  walkthrough:{subject:'Final Walkthrough Scheduled | [Address] | [Date] at [Time]',to:'Buyer',from:'TC',body:`Hi [Buyer Name],\n\nFinal walkthrough scheduled:\n\nDate: [Date]\nTime: [Time]\nAddress: [Address]\n\n[Agent Name] will meet you there. Please verify:\n- Home condition same as offer\n- All repairs completed\n- All appliances/fixtures present\n- No new damage\n- Seller removed all belongings\n\nContact us immediately if anything is wrong before closing.\n\nBest,\n[TC Name]\n[TC Phone] | [TC Email]`},
+  closing_confirmed:{subject:'Closing Confirmed: [Date] at [Time] | [Address]',to:'All Parties',from:'TC',body:`Hi everyone,\n\nClosing confirmed for:\nDate: [Date]\nTime: [Time]\nLocation: [Title Company]\nAddress: [Full Address]\nClosing Officer: [Name] | [Phone]\n\nPLEASE BRING:\n- Valid photo ID\n- Cashier's check or wire confirmation (Buyer)\n- Keys, garage openers, passcodes (Seller)\n\nBUYER — Estimated cash to close: $[Amount]. Call [Title Company] at [Phone] to verify exact amount before wiring.\n\nBest,\n[TC Name]\n[TC Phone] | [TC Email]\n\nTC Note: Send 3 days before closing. Re-send 24 hours before.`},
+  confirm_funding:{subject:'Please Confirm Funding to Title | [Address] | Closing [Date]',to:'Lender',from:'TC',body:`Hi [Loan Officer Name],\n\nClosing on [Address] on [Date] at [Time].\n\nPlease confirm funds have been (or will be) wired to:\n[Title Company]\nRouting: [#]\nAccount: [#]\n\nPlease notify me as soon as funding is confirmed.\n\nThank you,\n[TC Name]\n[TC Phone] | [TC Email]\n\nTC Note: Send 24 hours before closing. Follow up by phone if no response.`},
+  closing_congrats:{subject:"Congratulations — The Keys Are Yours! | [Address]",to:'Buyer (+ Seller)',from:'TC',body:`Hi [Buyer Name],\n\nCongratulations on closing on [Address]!\n\nAttached are copies of your closing documents.\n\nNext steps:\n1. Transfer utilities:\n   - Water: FKAA (Florida Keys Aqueduct Authority)\n   - Electric: Keys Energy Services\n2. Update address with USPS, banks, DMV\n3. Store closing documents safely\n\nWe'd love a quick review:\nGoogle: [Link]\nZillow: [Link]\n\nWishing you joy in your new home!\n\n[Agent Name] & [TC Name]\nYourFloridaKeysAgent\n[Phone]\n\nTC Note: Send same day as closing. Attach ALTA/HUD.`},
+  utilities:{subject:'Reminder: Transfer Your Utilities | [Address]',to:'Buyer',from:'TC',body:`Hi [Buyer Name],\n\nReminder to transfer utilities:\n\nWater: FKAA (Florida Keys Aqueduct Authority)\nPhone: [#] | Website: [URL]\n\nElectric: Keys Energy Services\nPhone: [#] | Website: [URL]\n\nDo this within the next few days to avoid service interruption.\n\nCongratulations again!\n\nBest,\n[TC Name]\n[TC Phone] | [TC Email]`},
+};
+
+// ── STATE ────────────────────────────────────────────────────────
+let props=[],activeId=null,activeTab='detail',expanded={},datesOpen=true;
+
+const SUPABASE_URL="https://rlrhnakpnakopvfsottk.supabase.co";
+const SUPABASE_KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJscmhuYWtwbmFrb3B2ZnNvdHRrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIzMjY5NTcsImV4cCI6MjA5NzkwMjk1N30.CMfmsHlUxpoxznuMJBkjCUVSSsPm5Qn4J0Jzf4VHpkI";
+const STORAGE_KEY="tc_fka_v4";
+
+const DB_ID=1; // single shared row for all users
+
+async function sbFetch(path,opts={}){
+  return fetch(SUPABASE_URL+'/rest/v1/'+path,{
+    headers:{'apikey':SUPABASE_KEY,'Authorization':'Bearer '+SUPABASE_KEY,'Content-Type':'application/json','Prefer':'return=representation',...(opts.headers||{})},
+    ...opts
+  });
+}
+
+function setSyncStatus(msg,ok){
+  const el=document.getElementById('sync-status');
+  if(!el)return;
+  el.innerHTML=ok?'<i class="ti ti-cloud-check"></i> '+msg:'<i class="ti ti-cloud-x"></i> '+msg;
+  el.style.color=ok?'rgba(255,255,255,.9)':'#ffcccc';
+}
+
+async function save(){
+  if(!props.length)return;
+  const data=JSON.stringify(props);
+  try{localStorage.setItem(STORAGE_KEY,data);}catch(e){}
+  setSyncStatus('Saving...', true);
+  try{
+    const res=await fetch(SUPABASE_URL+'/rest/v1/properties',{
+      method:'POST',
+      headers:{
+        'apikey':SUPABASE_KEY,
+        'Authorization':'Bearer '+SUPABASE_KEY,
+        'Content-Type':'application/json',
+        'Prefer':'resolution=merge-duplicates,return=minimal'
+      },
+      body:JSON.stringify({id:DB_ID,data:data,updated_at:new Date().toISOString()})
+    });
+    if(!res.ok){
+      const t=await res.text();
+      console.warn('Save error:',res.status,t);
+      setSyncStatus('Save failed: '+res.status, false);
+    } else {
+      setSyncStatus('Synced ✓', true);
+      setTimeout(()=>setSyncStatus('',true),3000);
+    }
+  }catch(e){
+    console.warn('Save failed',e);
+    setSyncStatus('Offline', false);
+  }
+}
+
+async function load(){
+  try{
+    const res=await fetch(SUPABASE_URL+'/rest/v1/properties?id=eq.'+DB_ID+'&select=data',{
+      headers:{
+        'apikey':SUPABASE_KEY,
+        'Authorization':'Bearer '+SUPABASE_KEY
+      }
+    });
+    if(res.ok){
+      const rows=await res.json();
+      if(rows&&rows.length>0&&rows[0].data){
+        let parsed=rows[0].data;
+        if(typeof parsed==='string')parsed=JSON.parse(parsed);
+        if(Array.isArray(parsed)&&parsed.length>0){
+          props=parsed;
+          console.log('Loaded from cloud:',parsed.length,'props');
+          return;
+        }
+      }
+    }else{
+      const t=await res.text();
+      console.warn('Load error:',res.status,t);
+    }
+  }catch(e){console.warn('Load failed',e);}
+  try{
+    const d=localStorage.getItem(STORAGE_KEY);
+    if(d){const p=JSON.parse(d);if(Array.isArray(p)&&p.length>0){props=p;console.log('Loaded from localStorage');}}
+  }catch(e){props=[];}
+}
+
+// Auto-sync when tab becomes visible (catches changes from other devices)
+document.addEventListener('visibilitychange',async()=>{
+  if(document.visibilityState==='visible'){
+    await load();
+    render();
+  }
+  if(document.visibilityState==='hidden')save();
+});
+window.addEventListener('pagehide',()=>save());
+
+// Show loading state then load
+document.getElementById('main-panel').innerHTML=`<div class="empty-state"><div class="empty-icon"><i class="ti ti-loader" style="animation:spin 1s linear infinite"></i></div><div class="empty-title">Loading...</div></div>`;
+
+// Add spin animation
+const styleEl=document.createElement('style');
+styleEl.textContent='@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}';
+document.head.appendChild(styleEl);
+
+load().then(()=>{render();});
+
+function deepClone(o){return JSON.parse(JSON.stringify(o))}
+function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+function typeName(t){return{seller:'Seller',buyer:'Buyer',dual:'Dual Agency',cash:'Cash',financed:'Financed'}[t]||t}
+
+function getPhases(p){
+  // Use custom phases if they exist, otherwise use defaults for type
+  if(p.customPhases) return p.customPhases;
+  const key = p.type==='buyer' ? 'buyer' : 'seller';
+  return deepClone(DEFAULT_PHASES[key]||DEFAULT_PHASES.seller);
+}
+
+function getStats(p){
+  const ph=getPhases(p);let tot=0,done=0;
+  ph.forEach(s=>s.tasks.forEach(t=>{tot++;if((p.checked||{})[t.id])done++;}));
+  return{tot,done,pct:tot?Math.round(done/tot*100):0};
+}
+
+function toggleSidebar(){document.getElementById('sidebar').classList.toggle('open');document.getElementById('backdrop').classList.toggle('open');}
+function closeSidebar(){document.getElementById('sidebar').classList.remove('open');document.getElementById('backdrop').classList.remove('open');}
+
+// ── RENDER SIDEBAR ───────────────────────────────────────────────
+function render(){
+  const list=document.getElementById('prop-list');
+  const active=props.filter(p=>p.status!=='archived');
+  const archived=props.filter(p=>p.status==='archived');
+  let html='';
+  if(!props.length)html='<div style="padding:14px 6px;font-size:12px;color:var(--text3);text-align:center">No properties yet</div>';
+  active.forEach(p=>{
+    const {pct}=getStats(p);
+    html+=`<div class="prop-item${p.id===activeId?' active':''}" onclick="selectProp('${p.id}')">
+      <div class="prop-name">${esc(p.address||'Unnamed')}</div>
+      <div class="prop-meta">${pct}% · ${typeName(p.type)}${p.closing?' · '+esc(p.closing):''}</div>
+      <span class="prop-badge badge-${p.status==='closed'?'closed':p.type}">${p.status==='closed'?'Closed':typeName(p.type)}</span>
+    </div>`;
+  });
+  if(archived.length){
+    html+=`<div class="section-label">Archived</div>`;
+    archived.forEach(p=>{
+      html+=`<div class="prop-item${p.id===activeId?' active':''}" onclick="selectProp('${p.id}')">
+        <div class="prop-name" style="color:var(--text3)">${esc(p.address||'Unnamed')}</div>
+        <span class="prop-badge badge-archived">Archived</span>
+      </div>`;
+    });
+  }
+  list.innerHTML=html;
+  if(!activeId) renderDashboard();
+  else renderMain();
+}
+
+function renderDashboard(){
+  const main=document.getElementById('main-panel');
+  const active=props.filter(p=>p.status!=='archived'&&p.status!=='closed');
+  const closed=props.filter(p=>p.status==='closed');
+  const archived=props.filter(p=>p.status==='archived');
+
+  let tilesHtml='';
+  if(!props.length){
+    tilesHtml=`<div class="dash-empty">
+      <div class="dash-empty-icon"><i class="ti ti-home-plus"></i></div>
+      <div class="dash-empty-title">No properties yet</div>
+      <div class="dash-empty-sub">Add your first property to get started</div>
+      <button class="btn btn-primary" onclick="openNewProp()"><i class="ti ti-plus"></i> Add first property</button>
+    </div>`;
+  } else {
+    if(active.length){
+      tilesHtml+=`<div class="dash-section-label">Active Transactions</div><div class="dash-tiles">`;
+      active.forEach(p=>{
+        const {pct,done,tot}=getStats(p);
+        const closing=p.dates&&p.dates.closing_date?formatDate(p.dates.closing_date):(p.closing?p.closing:'');
+        const daysLeft=closing?daysUntil(p.dates&&p.dates.closing_date?p.dates.closing_date:p.closing):'';
+        tilesHtml+=propTile(p,pct,done,tot,closing,daysLeft);
+      });
+      tilesHtml+=`</div>`;
+    }
+    if(closed.length){
+      tilesHtml+=`<div class="dash-section-label">Closed</div><div class="dash-tiles">`;
+      closed.forEach(p=>{
+        const {pct,done,tot}=getStats(p);
+        tilesHtml+=propTile(p,pct,done,tot,'','');
+      });
+      tilesHtml+=`</div>`;
+    }
+  }
+
+  main.innerHTML=`
+<div class="dash-header">
+  <div class="dash-header-left">
+    <div class="dash-greeting">Good ${getTimeOfDay()}</div>
+    <div class="dash-stats-row">
+      <div class="dash-stat"><span>${active.length}</span> Active</div>
+      <div class="dash-stat"><span>${closed.length}</span> Closed</div>
+      <div class="dash-stat"><span>${archived.length}</span> Archived</div>
+    </div>
+  </div>
+  <button class="btn btn-primary" onclick="openNewProp()"><i class="ti ti-plus"></i> New property</button>
+</div>
+<div class="dash-content">
+  ${tilesHtml}
+</div>`;
+}
+
+function propTile(p,pct,done,tot,closing,daysLeft){
+  const r=42, circ=2*Math.PI*r;
+  const dash=circ*(pct/100);
+  const gap=circ-dash;
+  const statusColor=p.status==='closed'?'var(--text3)':pct===100?'var(--green)':pct>50?'var(--teal)':'var(--blush)';
+  const urgent=daysLeft!==''&&daysLeft<=7&&daysLeft>=0;
+  return `<div class="prop-tile" onclick="selectProp('${p.id}')">
+    <div class="tile-top">
+      <div class="tile-progress">
+        <svg width="100" height="100" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="${r}" fill="none" stroke="var(--border)" stroke-width="8"/>
+          <circle cx="50" cy="50" r="${r}" fill="none" stroke="${statusColor}" stroke-width="8"
+            stroke-dasharray="${dash} ${gap}" stroke-linecap="round"
+            transform="rotate(-90 50 50)" style="transition:stroke-dasharray .4s"/>
+          <text x="50" y="46" text-anchor="middle" font-size="16" font-weight="700" fill="var(--text)">${pct}%</text>
+          <text x="50" y="62" text-anchor="middle" font-size="9" fill="var(--text3)">${done}/${tot}</text>
+        </svg>
+      </div>
+      <div class="tile-info">
+        <div class="tile-address">${esc(p.address||'Unnamed')}</div>
+        ${p.client?`<div class="tile-client"><i class="ti ti-user" style="font-size:11px"></i> ${esc(p.client)}</div>`:''}
+        <div style="margin-top:6px;display:flex;gap:5px;flex-wrap:wrap">
+          <span class="prop-badge badge-${p.status==='closed'?'closed':p.type}">${p.status==='closed'?'Closed':typeName(p.type)}</span>
+        </div>
+        ${closing?`<div class="tile-closing ${urgent?'urgent':''}"><i class="ti ti-calendar"></i> ${urgent?'<strong>':''}${closing}${daysLeft!==''?' ('+daysLeft+'d)':''}${urgent?'</strong>':''}</div>`:''}
+      </div>
+    </div>
+  </div>`;
+}
+
+function daysUntil(dateStr){
+  if(!dateStr)return'';
+  try{
+    const d=new Date(dateStr+'T12:00:00');
+    const now=new Date();
+    const diff=Math.ceil((d-now)/(1000*60*60*24));
+    return diff;
+  }catch(e){return'';}
+}
+
+function getTimeOfDay(){
+  const h=new Date().getHours();
+  if(h<12)return'morning';
+  if(h<17)return'afternoon';
+  return'evening';
+}
+
+function selectProp(id){activeId=id;activeTab='detail';closeSidebar();render();}
+function goHome(){activeId=null;closeSidebar();render();}
+
+// ── RENDER MAIN ──────────────────────────────────────────────────
+function renderMain(){
+  const main=document.getElementById('main-panel');
+  const p=props.find(x=>x.id===activeId);
+  if(!p){renderDashboard();return;}
+  const {tot,done,pct}=getStats(p);
+  const sb=p.status==='closed'?`<span class="prop-badge badge-closed">Closed</span>`:p.status==='archived'?`<span class="prop-badge badge-archived">Archived</span>`:'';
+  main.innerHTML=`
+<div class="main-header">
+  <div class="prop-title-row">
+    <div class="main-title">${esc(p.address||'Unnamed property')}</div>${sb}
+  </div>
+  ${p.client?`<div class="main-subtitle">${esc(p.client)}</div>`:''}
+  <div class="stat-pills">
+    <div class="stat-pill"><span>${pct}%</span> complete</div>
+    <div class="stat-pill"><span>${done}</span>/${tot} tasks</div>
+    <div class="stat-pill">${typeName(p.type)}</div>
+    ${p.closing?`<div class="stat-pill">Closing: <span>${esc(p.closing)}</span></div>`:''}
+  </div>
+  <div class="action-row">
+    <button class="btn btn-sm" onclick="editProp('${p.id}')"><i class="ti ti-edit"></i> Edit</button>
+    ${p.status!=='closed'&&p.status!=='archived'?`<button class="btn btn-sm btn-success" onclick="confirmAction('close','${p.id}')"><i class="ti ti-check"></i> Mark closed</button>`:''}
+    ${p.status!=='archived'?`<button class="btn btn-sm btn-warn" onclick="confirmAction('archive','${p.id}')"><i class="ti ti-archive"></i> Archive</button>`:''}
+    <button class="btn btn-sm btn-danger" onclick="confirmAction('delete','${p.id}')"><i class="ti ti-trash"></i> Delete</button>
+  </div>
+  <div class="tab-bar">
+    <button class="tab${activeTab==='detail'?' active':''}" onclick="switchTab('detail')"><i class="ti ti-list-check"></i> Detailed checklist</button>
+    <button class="tab${activeTab==='onesheet'?' active':''}" onclick="switchTab('onesheet')"><i class="ti ti-layout-grid"></i> One sheet</button>
+  </div>
+</div>
+<div class="progress-wrap">
+  <div class="progress-bar"><div class="progress-fill" style="width:${pct}%"></div></div>
+  <div class="progress-label">${done} of ${tot} tasks complete</div>
+</div>
+<div class="content" id="tab-content"></div>`;
+  renderTab(p);
+}
+
+function switchTab(t){activeTab=t;const p=props.find(x=>x.id===activeId);if(p)renderTab(p);}
+
+function renderTab(p){
+  const tc=document.getElementById('tab-content');if(!tc)return;
+  if(activeTab==='detail') renderDetail(tc,p);
+  else renderOneSheet(tc,p);
+}
+
+// ── DATES PANEL ──────────────────────────────────────────────────
+function renderDatesPanel(p){
+  const dates=p.dates||{};
+  const toggle=datesOpen?'open':'';
+  // Merge default fields with any custom ones saved on the property
+  const customFields=p.customDateFields||[];
+  const hiddenFields=p.hiddenDateFields||[];
+  const defaultFields=DATE_FIELDS.filter(f=>!hiddenFields.includes(f.key));
+  const allFields=[...defaultFields,...customFields];
+  let html=`<div class="dates-panel">
+    <div class="dates-header" onclick="toggleDates()">
+      <i class="ti ti-calendar" style="color:var(--teal-dark);font-size:16px"></i>
+      <span class="dates-header-title">Important dates & deadlines</span>
+      <i class="ti ti-chevron-down phase-toggle ${toggle}" style="color:var(--teal-dark)"></i>
+    </div>`;
+  if(datesOpen){
+    html+=`<div class="dates-grid">`;
+    allFields.forEach(f=>{
+      const val=dates[f.key]||'';
+      const display=val?formatDate(val):'Not set';
+      const isEmpty=!val;
+      const isCustom=!!f.custom;
+      html+=`<div class="date-item">
+        <div class="date-icon ${f.style||''}"><i class="ti ${f.icon||'ti-calendar'}"></i></div>
+        <div class="date-body">
+          <div class="date-label">${esc(f.label)}</div>
+          <div class="date-val${isEmpty?' empty':''}">${esc(display)}</div>
+        </div>
+        <button class="date-edit-btn" onclick="editDate('${p.id}','${esc(f.key)}','${esc(f.label)}','${esc(val)}')" title="Edit date"><i class="ti ti-pencil"></i></button>
+        <button class="date-edit-btn" onclick="deleteDateField('${p.id}','${esc(f.key)}')" title="Remove this field" style="color:#a32d2d"><i class="ti ti-x"></i></button>
+      </div>`;
+    });
+    html+=`</div>
+    <div class="add-date-row">
+      <button class="btn btn-sm" onclick="addDateField('${p.id}')"><i class="ti ti-plus"></i> Add date field</button>
+    </div>`;
+  }
+  html+=`</div>`;
+  return html;
+}
+
+function addDateField(pid){
+  showModal(`<div class="modal" onclick="event.stopPropagation()" style="max-width:380px">
+    <div class="modal-header">
+      <div class="modal-icon"><i class="ti ti-calendar-plus"></i></div>
+      <span class="modal-title">Add date field</span>
+      <button class="btn btn-sm" onclick="closeModal()"><i class="ti ti-x"></i></button>
+    </div>
+    <div class="modal-body">
+      <div class="form-row"><label class="form-label">Label *</label><input class="form-input" id="ndf-label" placeholder="e.g. HOA Approval Deadline"></div>
+      <div class="form-row"><label class="form-label">Date (optional)</label><input class="form-input" type="date" id="ndf-val"></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-sm" onclick="closeModal()">Cancel</button>
+      <button class="btn btn-sm btn-primary" onclick="saveNewDateField('${pid}')"><i class="ti ti-plus"></i> Add</button>
+    </div>
+  </div>`);
+  setTimeout(()=>{const el=document.getElementById('ndf-label');if(el)el.focus();},50);
+}
+
+function saveNewDateField(pid){
+  const label=(document.getElementById('ndf-label').value||'').trim();
+  if(!label){alert('Please enter a label.');return;}
+  const val=document.getElementById('ndf-val').value||'';
+  const p=props.find(x=>x.id===pid);if(!p)return;
+  if(!p.customDateFields)p.customDateFields=[];
+  const key='custom_date_'+Date.now();
+  p.customDateFields.push({key,label,icon:'ti-calendar',style:'',custom:true});
+  if(!p.dates)p.dates={};
+  if(val)p.dates[key]=val;
+  save();closeModal();renderTab(p);
+}
+
+function deleteDateField(pid,key){
+  const p=props.find(x=>x.id===pid);if(!p)return;
+  // If it's a custom field, remove it entirely
+  if(p.customDateFields&&p.customDateFields.find(f=>f.key===key)){
+    p.customDateFields=p.customDateFields.filter(f=>f.key!==key);
+  } else {
+    // If it's a default field, just hide it for this property
+    if(!p.hiddenDateFields)p.hiddenDateFields=[];
+    if(!p.hiddenDateFields.includes(key))p.hiddenDateFields.push(key);
+  }
+  if(p.dates)delete p.dates[key];
+  save();renderTab(p);
+}
+
+function formatDate(d){
+  if(!d)return'';
+  try{const dt=new Date(d+'T12:00:00');return dt.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});}
+  catch(e){return d;}
+}
+
+function toggleDates(){datesOpen=!datesOpen;const p=props.find(x=>x.id===activeId);if(p)renderTab(p);}
+
+function editDate(pid,key,label,current){
+  showModal(`<div class="modal" onclick="event.stopPropagation()" style="max-width:340px">
+    <div class="modal-header">
+      <div class="modal-icon"><i class="ti ti-calendar"></i></div>
+      <span class="modal-title">${esc(label)}</span>
+      <button class="btn btn-sm" onclick="closeModal()"><i class="ti ti-x"></i></button>
+    </div>
+    <div class="modal-body">
+      <div class="form-row">
+        <label class="form-label">Date</label>
+        <input class="form-input" type="date" id="date-val" value="${esc(current)}">
+      </div>
+    </div>
+    <div class="modal-footer">
+      ${current?`<button class="btn btn-sm btn-danger" onclick="saveDate('${pid}','${key}','')">Clear</button>`:''}
+      <button class="btn btn-sm" onclick="closeModal()">Cancel</button>
+      <button class="btn btn-sm btn-primary" onclick="saveDate('${pid}','${key}',document.getElementById('date-val').value)">Save</button>
+    </div>
+  </div>`);
+  setTimeout(()=>{const el=document.getElementById('date-val');if(el)el.focus();},50);
+}
+
+function saveDate(pid,key,val){
+  const p=props.find(x=>x.id===pid);if(!p)return;
+  if(!p.dates)p.dates={};
+  if(val)p.dates[key]=val;else delete p.dates[key];
+  save();closeModal();renderTab(p);
+}
+
+// ── DETAIL TAB ───────────────────────────────────────────────────
+function renderDetail(tc,p){
+  const phases=getPhases(p);
+  let html=renderDatesPanel(p);
+  phases.forEach(ph=>{
+    let phDone=0;ph.tasks.forEach(t=>{if((p.checked||{})[t.id])phDone++;});
+    const isOpen=expanded[ph.id]!==false;
+    html+=`<div class="phase-section">
+      <div class="phase-header" onclick="togglePhase('${ph.id}')">
+        <i class="ti ti-${phDone===ph.tasks.length?'circle-check':'circle'}" style="color:${phDone===ph.tasks.length?'var(--green)':'var(--blush-dark)'}"></i>
+        <span class="phase-title">${esc(ph.name)}</span>
+        <span class="phase-count">${phDone}/${ph.tasks.length}</span>
+        <button class="phase-add-btn" onclick="event.stopPropagation();addTask('${p.id}','${ph.id}')"><i class="ti ti-plus" style="font-size:10px"></i> Add task</button>
+        <i class="ti ti-chevron-down phase-toggle${isOpen?' open':''}"></i>
+      </div>
+      ${isOpen?`<div class="task-list">${ph.tasks.map(t=>taskHTML(t,p,ph.id)).join('')}</div>`:''}
+    </div>`;
+  });
+  tc.innerHTML=html;
+}
+
+function taskHTML(t,p,phId){
+  var chk=!!(p.checked||{})[t.id];
+  var meta=(p.taskMeta||{})[t.id]||{};
+  var showDotloop=meta.dotloop!==undefined?meta.dotloop:t.dotloop;
+  var showEmail=meta.email!==undefined?meta.email:true;
+  var whoClass=t.who==='TC'?'meta-tc':t.who==='Agent'?'meta-agent':'meta-both';
+  var whoLabel=t.who==='Both'?'Agent + TC':t.who==='Agent+Seller'?'Agent + Seller':t.who;
+  var h='';
+  h+='<div class="task-item'+(chk?' done':'')+'">';
+  h+='<div class="task-check'+(chk?' checked':'')+'" onclick="toggleTask(''+p.id+'',''+t.id+'')" role="checkbox" tabindex="0">';
+  if(chk)h+='<i class="ti ti-check" style="font-size:11px;color:#fff"></i>';
+  h+='</div>';
+  h+='<div class="task-body">';
+  h+='<div class="task-name">'+esc(t.name)+'</div>';
+  if(t.desc)h+='<div class="task-desc">'+esc(t.desc)+'</div>';
+  h+='<div class="task-meta">';
+  h+='<span class="meta-tag '+whoClass+'" onclick="cycleWho(''+p.id+'',''+t.id+'',''+phId+'')"><i class="ti ti-user" style="font-size:11px"></i> '+esc(whoLabel)+'</span>';
+  h+='<span class="meta-tag meta-dotloop'+(showDotloop?'':' meta-off')+'" onclick="toggleMeta(''+p.id+'',''+t.id+'','dotloop')"><i class="ti ti-upload" style="font-size:11px"></i> Dotloop</span>';
+  h+='<span class="meta-tag meta-email'+(showEmail?'':' meta-off')+'" onclick="toggleMeta(''+p.id+'',''+t.id+'','email')"><i class="ti ti-mail" style="font-size:11px"></i> Email</span>';
+  if(showEmail){
+    var ek=t.emailKey||'';
+    var nm=esc(t.name).replace(/'/g,'');
+    h+='<button class="email-btn" data-ek="'+ek+'" data-pid="'+p.id+'" data-nm="'+nm+'" onclick="handleDraft(this.dataset.ek,this.dataset.pid,this.dataset.nm)"><i class="ti ti-external-link" style="font-size:11px"></i> Draft</button>';
+  }
+  h+='</div></div>';
+  h+='<button class="task-del-btn" onclick="deleteTask(''+p.id+'',''+phId+'',''+t.id+'')"><i class="ti ti-x"></i></button>';
+  h+='</div>';
+  return h;
+}
+
+function togglePhase(id){expanded[id]=expanded[id]===false;const p=props.find(x=>x.id===activeId);if(p)renderDetail(document.getElementById('tab-content'),p);}
+
+function toggleTask(pid,tid){
+  const p=props.find(x=>x.id===pid);if(!p)return;
+  if(!p.checked)p.checked={};
+  p.checked[tid]=!p.checked[tid];
+  save();render();
+}
+
+function cycleWho(pid,tid,phId){
+  const p=props.find(x=>x.id===pid);if(!p)return;
+  ensureCustomPhases(p);
+  const ph=p.customPhases.find(x=>x.id===phId);if(!ph)return;
+  const t=ph.tasks.find(x=>x.id===tid);if(!t)return;
+  const cycle=['TC','Agent','Both'];
+  const cur=t.who;
+  t.who=cycle[(cycle.indexOf(cur)+1)%cycle.length]||'TC';
+  save();renderDetail(document.getElementById('tab-content'),p);
+}
+
+function toggleMeta(pid,tid,field){
+  const p=props.find(x=>x.id===pid);if(!p)return;
+  if(!p.taskMeta)p.taskMeta={};
+  if(!p.taskMeta[tid])p.taskMeta[tid]={};
+  // Get current effective value
+  ensureCustomPhases(p);
+  let ph,t;
+  for(const phase of p.customPhases){const found=phase.tasks.find(x=>x.id===tid);if(found){t=found;ph=phase;break;}}
+  if(!t)return;
+  const cur=p.taskMeta[tid][field]!==undefined?p.taskMeta[tid][field]:t[field];
+  p.taskMeta[tid][field]=!cur;
+  save();renderDetail(document.getElementById('tab-content'),p);
+}
+
+function ensureCustomPhases(p){
+  if(!p.customPhases){
+    p.customPhases=deepClone(DEFAULT_PHASES[p.type==='buyer'?'buyer':'seller']||DEFAULT_PHASES.seller);
+  }
+}
+
+function addTask(pid,phId){
+  showModal(`<div class="modal" onclick="event.stopPropagation()" style="max-width:460px">
+    <div class="modal-header">
+      <div class="modal-icon"><i class="ti ti-plus"></i></div>
+      <span class="modal-title">Add task</span>
+      <button class="btn btn-sm" onclick="closeModal()"><i class="ti ti-x"></i></button>
+    </div>
+    <div class="modal-body">
+      <div class="form-row"><label class="form-label">Task name *</label><input class="form-input" id="nt-name" placeholder="e.g. Send HOA documents"></div>
+      <div class="form-row"><label class="form-label">Description</label><textarea class="form-input" id="nt-desc" placeholder="Optional notes or instructions"></textarea></div>
+      <div class="form-row">
+        <label class="form-label">Responsible party</label>
+        <div class="toggle-row">
+          <button class="toggle-chip on" id="nt-who-tc" onclick="setWhoChip('TC')">TC</button>
+          <button class="toggle-chip" id="nt-who-agent" onclick="setWhoChip('Agent')">Agent</button>
+          <button class="toggle-chip" id="nt-who-both" onclick="setWhoChip('Both')">Both</button>
+        </div>
+      </div>
+      <div class="form-row">
+        <label class="form-label">Tags</label>
+        <div class="toggle-row">
+          <button class="toggle-chip" id="nt-dotloop" onclick="this.classList.toggle('on')">Dotloop</button>
+          <button class="toggle-chip" id="nt-email" onclick="this.classList.toggle('on')">Email needed</button>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-sm" onclick="closeModal()">Cancel</button>
+      <button class="btn btn-sm btn-primary" onclick="saveNewTask('${pid}','${phId}')"><i class="ti ti-plus"></i> Add task</button>
+    </div>
+  </div>`);
+  setTimeout(()=>{const el=document.getElementById('nt-name');if(el)el.focus();},50);
+}
+
+let _newTaskWho='TC';
+function setWhoChip(v){
+  _newTaskWho=v;
+  ['TC','Agent','Both'].forEach(w=>{
+    const el=document.getElementById('nt-who-'+w.toLowerCase());
+    if(el)el.classList.toggle('on',w===v);
+  });
+}
+
+function saveNewTask(pid,phId){
+  const name=document.getElementById('nt-name').value.trim();
+  if(!name){alert('Please enter a task name.');return;}
+  const desc=document.getElementById('nt-desc').value.trim();
+  const dotloop=document.getElementById('nt-dotloop').classList.contains('on');
+  const email=document.getElementById('nt-email').classList.contains('on');
+  const p=props.find(x=>x.id===pid);if(!p)return;
+  ensureCustomPhases(p);
+  const ph=p.customPhases.find(x=>x.id===phId);if(!ph)return;
+  const tid='custom_'+Date.now();
+  ph.tasks.push({id:tid,name,desc,who:_newTaskWho,email:email,emailKey:null,dotloop});
+  _newTaskWho='TC';
+  save();closeModal();renderDetail(document.getElementById('tab-content'),p);
+}
+
+function deleteTask(pid,phId,tid){
+  const p=props.find(x=>x.id===pid);if(!p)return;
+  ensureCustomPhases(p);
+  const ph=p.customPhases.find(x=>x.id===phId);if(!ph)return;
+  ph.tasks=ph.tasks.filter(t=>t.id!==tid);
+  if(p.checked)delete p.checked[tid];
+  save();renderDetail(document.getElementById('tab-content'),p);
+}
+
+// ── ONE SHEET ────────────────────────────────────────────────────
+function renderOneSheet(tc,p){
+  const phases=getPhases(p);
+  let html='<div class="onesheet-grid">';
+  phases.forEach(ph=>{
+    html+=`<div class="onesheet-phase"><div class="onesheet-ph-title">${esc(ph.name)}</div>`;
+    ph.tasks.forEach(t=>{
+      const chk=!!(p.checked||{})[t.id];
+      html+=`<div class="onesheet-item"><input type="checkbox" ${chk?'checked':''} onchange="toggleTask('${p.id}','${t.id}')" aria-label="${esc(t.name)}"><span class="onesheet-label${chk?' done':''}">${esc(t.name)}</span></div>`;
+    });
+    html+='</div>';
+  });
+  tc.innerHTML=html+'</div>';
+}
+
+// ── EMAIL ────────────────────────────────────────────────────────
+function openEmail(key,pid){
+  const tmpl=EMAILS[key];if(!tmpl)return;
+  const p=props.find(x=>x.id===pid);
+  const addr=p?p.address:'[Property Address]';
+  const body=tmpl.body.replace(/\[Address\]/g,addr).replace(/\[Property Address\]/g,addr);
+  const subj=tmpl.subject.replace(/\[Address\]/g,addr).replace(/\[Property Address\]/g,addr);
+  showModal(`<div class="modal" onclick="event.stopPropagation()">
+    <div class="modal-header">
+      <div class="modal-icon"><i class="ti ti-mail"></i></div>
+      <span class="modal-title">Email draft</span>
+      <button class="btn btn-sm" onclick="closeModal()"><i class="ti ti-x"></i></button>
+    </div>
+    <div class="modal-body">
+      <div class="email-field"><div class="email-label">To</div><div class="email-val">${esc(tmpl.to)}</div></div>
+      <div class="email-field"><div class="email-label">From</div><div class="email-val">${esc(tmpl.from)}</div></div>
+      <div class="email-field"><div class="email-label">Subject</div><div class="email-val" style="font-weight:700">${esc(subj)}</div></div>
+      <div class="email-field">
+        <div class="email-label">Body <span style="font-weight:400;text-transform:none;font-size:11px">(tap to edit)</span></div>
+        <div class="email-body-area" contenteditable="true" id="email-body-txt">${esc(body)}</div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-sm" onclick="copyEmail()"><i class="ti ti-copy"></i> Copy body</button>
+      <button class="btn btn-sm btn-primary" onclick="closeModal()">Done</button>
+    </div>
+  </div>`);
+}
+
+function handleDraft(emailKey,pid,taskName){
+  if(emailKey&&emailKey!==''){openEmail(emailKey,pid);}
+  else{openBlankEmail(pid,taskName);}
+}
+
+function openBlankEmail(pid,taskName){
+  const p=props.find(x=>x.id===pid);
+  const addr=p?p.address:'[Property Address]';
+  showModal(`<div class="modal" onclick="event.stopPropagation()">
+    <div class="modal-header">
+      <div class="modal-icon"><i class="ti ti-mail"></i></div>
+      <span class="modal-title">Email draft</span>
+      <button class="btn btn-sm" onclick="closeModal()"><i class="ti ti-x"></i></button>
+    </div>
+    <div class="modal-body">
+      <div class="email-field"><div class="email-label">To</div><div class="email-val">[Recipient]</div></div>
+      <div class="email-field"><div class="email-label">Subject</div><div class="email-val">${esc(taskName)} | ${esc(addr)}</div></div>
+      <div class="email-field">
+        <div class="email-label">Body <span style="font-weight:400;text-transform:none;font-size:11px">(tap to edit)</span></div>
+        <div class="email-body-area" contenteditable="true" id="email-body-txt">Hi [Name],
+
+This email is regarding: ${esc(taskName)}
+Property: ${esc(addr)}
+
+[Add your message here]
+
+Best,
+[TC Name]
+[TC Phone] | [TC Email]</div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-sm" onclick="copyEmail()"><i class="ti ti-copy"></i> Copy body</button>
+      <button class="btn btn-sm btn-primary" onclick="closeModal()">Done</button>
+    </div>
+  </div>`);
+}
+
+function copyEmail(){
+  const el=document.getElementById('email-body-txt');if(!el)return;
+  navigator.clipboard.writeText(el.innerText).then(()=>{
+    const b=document.querySelector('.modal-footer .btn');
+    if(b){const o=b.innerHTML;b.innerHTML='<i class="ti ti-check"></i> Copied!';setTimeout(()=>b.innerHTML=o,2000);}
+  }).catch(()=>{});
+}
+
+// ── CONFIRM / ACTIONS ────────────────────────────────────────────
+function confirmAction(action,id){
+  const p=props.find(x=>x.id===id);if(!p)return;
+  const cfg={
+    close:{title:'Mark as closed',msg:`Mark <strong>${esc(p.address)}</strong> as closed?`,btn:'Mark closed',ic:'green',icon:'ti-check'},
+    archive:{title:'Archive property',msg:`Archive <strong>${esc(p.address)}</strong>? It will move to the archived section.`,btn:'Archive',ic:'',icon:'ti-archive'},
+    delete:{title:'Delete property',msg:`Permanently delete <strong>${esc(p.address)}</strong> and all data? This cannot be undone.`,btn:'Delete',ic:'red',icon:'ti-trash'},
+  };
+  const m=cfg[action];
+  showModal(`<div class="modal" onclick="event.stopPropagation()" style="max-width:380px">
+    <div class="modal-header">
+      <div class="modal-icon ${m.ic}"><i class="ti ${m.icon}"></i></div>
+      <span class="modal-title">${m.title}</span>
+      <button class="btn btn-sm" onclick="closeModal()"><i class="ti ti-x"></i></button>
+    </div>
+    <div class="modal-body"><p class="confirm-msg">${m.msg}</p></div>
+    <div class="modal-footer">
+      <button class="btn btn-sm" onclick="closeModal()">Cancel</button>
+      <button class="btn btn-sm ${action==='delete'?'btn-danger':action==='close'?'btn-success':'btn-warn'}" onclick="doAction('${action}','${id}')">${m.btn}</button>
+    </div>
+  </div>`);
+}
+
+function doAction(action,id){
+  closeModal();
+  if(action==='close'){const p=props.find(x=>x.id===id);if(p){p.status='closed';save();render();}}
+  else if(action==='archive'){const p=props.find(x=>x.id===id);if(p){p.status='archived';save();render();}}
+  else if(action==='delete'){props=props.filter(x=>x.id!==id);if(activeId===id)activeId=null;save();render();}
+}
+
+// ── PROPERTY FORM ────────────────────────────────────────────────
+function propForm(p){
+  const isEdit=!!p;
+  showModal(`<div class="modal" onclick="event.stopPropagation()">
+    <div class="modal-header">
+      <div class="modal-icon"><i class="ti ti-home-plus"></i></div>
+      <span class="modal-title">${isEdit?'Edit property':'Add property'}</span>
+      <button class="btn btn-sm" onclick="closeModal()"><i class="ti ti-x"></i></button>
+    </div>
+    <div class="modal-body">
+      <div class="form-row"><label class="form-label">Property address *</label><input class="form-input" id="f-addr" value="${esc(p?p.address:'')}" placeholder="123 Ocean Dr, Key West, FL"></div>
+      <div class="form-row"><label class="form-label">Transaction type</label>
+        <select class="form-input" id="f-type">
+          <option value="seller"${(!p||p.type==='seller')?' selected':''}>Seller / Listing</option>
+          <option value="buyer"${p&&p.type==='buyer'?' selected':''}>Buyer</option>
+          <option value="dual"${p&&p.type==='dual'?' selected':''}>Dual Agency</option>
+          <option value="cash"${p&&p.type==='cash'?' selected':''}>Cash</option>
+          <option value="financed"${p&&p.type==='financed'?' selected':''}>Financed</option>
+        </select>
+      </div>
+      <div class="form-row"><label class="form-label">Client name</label><input class="form-input" id="f-client" value="${esc(p?p.client:'')}" placeholder="Smith Family"></div>
+      <div class="form-row"><label class="form-label">Closing date</label><input class="form-input" type="date" id="f-closing" value="${p&&p.closing?p.closing:''}"></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-sm" onclick="closeModal()">Cancel</button>
+      <button class="btn btn-sm btn-primary" onclick="saveProp(${isEdit?`'${p.id}'`:'null'})">${isEdit?'Save changes':'Add property'}</button>
+    </div>
+  </div>`);
+  setTimeout(()=>{const el=document.getElementById('f-addr');if(el)el.focus();},80);
+}
+
+function openNewProp(){propForm(null);}
+function editProp(id){const p=props.find(x=>x.id===id);if(p)propForm(p);}
+
+function saveProp(id){
+  const addr=(document.getElementById('f-addr').value||'').trim();
+  if(!addr){alert('Please enter a property address.');return;}
+  const type=document.getElementById('f-type').value;
+  const client=(document.getElementById('f-client').value||'').trim();
+  const closing=document.getElementById('f-closing').value;
+  if(id&&id!=='null'){
+    const p=props.find(x=>x.id===id);
+    if(p){
+      const typeChanged=p.type!==type;
+      p.address=addr;p.client=client;p.closing=closing;
+      if(typeChanged){p.type=type;p.customPhases=null;}// reset checklist on type change
+      else p.type=type;
+    }
+  }else{
+    const nid='p'+Date.now();
+    props.unshift({id:nid,address:addr,type,client,closing,status:'active',checked:{},dates:{},taskMeta:{}});
+    activeId=props[0].id;
+  }
+  save();closeModal();render();
+}
+
+// ── MODAL HELPERS ────────────────────────────────────────────────
+function showModal(html){const ov=document.getElementById('modal-overlay');ov.innerHTML=html;ov.style.display='flex';}
+function closeModal(){const ov=document.getElementById('modal-overlay');ov.style.display='none';ov.innerHTML='';}
+function handleOverlayClick(e){if(e.target===e.currentTarget)closeModal();}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+
+
+</script>
+</body>
+</html>
